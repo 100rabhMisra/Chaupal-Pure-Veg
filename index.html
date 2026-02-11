@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Punjab Club - Best Restaurant in Noida | Gaur City, Noida Extension</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <h1>The Punjab Club</h1>
+                    <p class="tagline">Family Restaurant</p>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="btn-primary" onclick="openBookingModal()">
+                        <i class="fas fa-calendar-alt"></i> Book Table
+                    </button>
+                    <button class="btn-secondary cart-btn" onclick="openOrderModal()">
+                        <i class="fas fa-shopping-cart"></i> Order Now
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to The Punjab Club</h1>
+            <p class="hero-subtitle">Best Restaurant in Noida | Gaur City, Noida Extension</p>
+            <div class="hero-buttons">
+                <button class="btn-large btn-primary" onclick="openBookingModal()">Reserve Your Table</button>
+                <button class="btn-large btn-outline" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">View Menu</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Us</h2>
+                <p class="section-subtitle">Premier North Indian Dining in Noida Extension</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800" alt="Restaurant Interior">
+                </div>
+                <div class="about-text">
+                    <h3>The Best Restaurant in Noida</h3>
+                    <p>The Punjab Club - Family Restaurant is your top choice for North Indian cuisine in Delhi/NCR, particularly in Noida. Located in Gaur City, Noida Extension, we offer a refined dining experience with a focus on authentic flavors that will transport you to the heart of Punjab.</p>
+                    <p>Our specialty lies in fragrant biryanis, rich curries, tandoori dishes, artisan pizzas, and delectable desserts. Complement your meal with our selection of craft mocktails and cocktails, carefully curated to enhance your dining experience.</p>
+                    <p>The ambiance at The Punjab Club is elegant with soft lighting, comfortable seating, and sophisticated music - perfect for business lunches, family gatherings, romantic dinners, and celebrations. Experience why we're recognized as one of the best restaurants in Noida.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <i class="fas fa-award"></i>
+                            <h4>Award-Winning</h4>
+                            <p>Best in North Indian cuisine</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-glass-cheers"></i>
+                            <h4>Craft Beverages</h4>
+                            <p>Mocktails & cocktails</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <h4>All Occasions</h4>
+                            <p>From business to celebrations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Menu</h2>
+                <p class="section-subtitle">Delicious Dishes Crafted with Love</p>
+            </div>
+            
+            <div class="menu-categories">
+                <button class="menu-tab active" onclick="filterMenu('all')">All</button>
+                <button class="menu-tab" onclick="filterMenu('starters')">Starters</button>
+                <button class="menu-tab" onclick="filterMenu('main-course')">Main Course</button>
+                <button class="menu-tab" onclick="filterMenu('breads')">Breads</button>
+                <button class="menu-tab" onclick="filterMenu('desserts')">Desserts</button>
+                <button class="menu-tab" onclick="filterMenu('beverages')">Beverages</button>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <!-- Starters -->
+                <div class="menu-item" data-category="starters">
+                    <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80" alt="Paneer Tikka">
+                    <div class="menu-item-content">
+                        <h3>Paneer Tikka</h3>
+                        <p>Cottage cheese marinated in spices and grilled to perfection</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹280</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Paneer Tikka', 280)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80" alt="Chicken Tikka">
+                    <div class="menu-item-content">
+                        <h3>Chicken Tikka</h3>
+                        <p>Tender chicken pieces marinated in yogurt and spices</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹320</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Chicken Tikka', 320)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="starters">
+                    <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?w=400&q=80" alt="Tandoori Chicken">
+                    <div class="menu-item-content">
+                        <h3>Tandoori Chicken</h3>
+                        <p>Half chicken marinated in tandoori masala and grilled</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹380</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Tandoori Chicken', 380)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Course -->
+                <div class="menu-item" data-category="main-course">
+                    <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80" alt="Butter Chicken">
+                    <div class="menu-item-content">
+                        <h3>Butter Chicken</h3>
+                        <p>Creamy tomato-based chicken curry - our signature dish</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹420</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Butter Chicken', 420)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="main-course">
+                    <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&q=80" alt="Dal Makhani">
+                    <div class="menu-item-content">
+                        <h3>Small Thali</h3>
+                        <p>Slow-cooked black lentils in butter and cream</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹280</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Dal Makhani', 280)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="menu-item" data-category="main-course">
+                    <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&q=80" alt="Samosa">
+                    <div class="menu-item-content">
+                        <h3>Samosa</h3>
+                        <p>Crispy pastry filled with spiced potatoes and peas</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹320</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Samosa', 320)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="menu-item" data-category="main-course">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=400&q=80" alt="Chicken Biryani">
+                    <div class="menu-item-content">
+                        <h3>Chicken Biryani</h3>
+                        <p>Aromatic basmati rice cooked with chicken and spices</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹380</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Chicken Biryani', 380)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breads -->
+                <div class="menu-item" data-category="breads">
+                    <img src="https://images.unsplash.com/photo-1566843972142-a7fcb70de55a?w=400&q=80" alt="Butter Naan">
+                    <div class="menu-item-content">
+                        <h3>Butter Naan</h3>
+                        <p>Soft leavened bread brushed with butter</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹60</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Butter Naan', 60)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="breads">
+                    <img src="https://images.unsplash.com/photo-1619426017473-8844ad0e7aab?w=400&q=80" alt="Garlic Naan">
+                    <div class="menu-item-content">
+                        <h3>Garlic Naan</h3>
+                        <p>Naan topped with butter and fresh garlic</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹80</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Garlic Naan', 80)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="breads">
+                    <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa808e?w=400&q=80" alt="Tandoori Roti">
+                    <div class="menu-item-content">
+                        <h3>Tandoori Roti</h3>
+                        <p>Whole wheat bread cooked in tandoor</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹40</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Tandoori Roti', 40)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <!-- <div class="menu-item" data-category="desserts">
+                    <img src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=400&q=80" alt="Gulab Jamun">
+                    <div class="menu-item-content">
+                        <h3>Gulab Jamun</h3>
+                        <p>Traditional Indian sweet dumplings in sugar syrup</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹120</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Gulab Jamun', 120)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="menu-item" data-category="desserts">
+                    <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=400&q=80" alt="Kulfi">
+                    <div class="menu-item-content">
+                        <h3>Kulfi</h3>
+                        <p>Traditional Indian ice cream with pistachio</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹100</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Kulfi', 100)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beverages -->
+                <div class="menu-item" data-category="beverages">
+                    <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&q=80" alt="Sweet Lassi">
+                    <div class="menu-item-content">
+                        <h3>Sweet Lassi</h3>
+                        <p>Refreshing yogurt-based drink</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹80</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Sweet Lassi', 80)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="beverages">
+                    <img src="https://images.unsplash.com/photo-1603569283847-aa295f0d016a?w=400&q=80" alt="Mango Lassi">
+                    <div class="menu-item-content">
+                        <h3>Mango Lassi</h3>
+                        <p>Creamy mango yogurt drink</p>
+                        <div class="menu-item-footer">
+                            <span class="price">₹100</span>
+                            <button class="btn-add-to-cart" onclick="addToCart('Mango Lassi', 100)">
+                                <i class="fas fa-plus"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">A Glimpse of Our Restaurant</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600" alt="Restaurant Interior">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Food Plating">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=600" alt="Dining Area">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600" alt="Restaurant Ambiance">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600" alt="Indian Dishes">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?w=600" alt="Family Dining">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Visit Us</h2>
+                <p class="section-subtitle">We'd Love to Serve You</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Gaur City, Noida Extension<br>Greater Noida West, Uttar Pradesh</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+91 XXX XXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Hours</h3>
+                            <p>Mon - Sun: 11:00 AM - 11:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@thepunjabclub.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14018.123456789!2d77.4900!3d28.6100!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM2JzM2LjAiTiA3N8KwMjknMjQuMCJF!5e0!3m2!1sen!2sin!4v1234567890" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Punjab Club</h3>
+                    <p>The best restaurant in Noida for authentic North Indian cuisine, elegant dining, and unforgettable experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Gaur City, Noida Extension</li>
+                        <li><i class="fas fa-phone"></i> +91 XXX XXX XXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@thepunjabclub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Punjab Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Table Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2><i class="fas fa-calendar-alt"></i> Reserve Your Table</h2>
+            <form id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label for="bookingName">Full Name *</label>
+                    <input type="text" id="bookingName" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingEmail">Email *</label>
+                        <input type="email" id="bookingEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingPhone">Phone *</label>
+                        <input type="tel" id="bookingPhone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingDate">Date *</label>
+                        <input type="date" id="bookingDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime">Time *</label>
+                        <input type="time" id="bookingTime" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bookingGuests">Number of Guests *</label>
+                        <select id="bookingGuests" required>
+                            <option value="">Select</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6+">6+ Guests</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingOccasion">Occasion</label>
+                        <select id="bookingOccasion">
+                            <option value="">Select (Optional)</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="anniversary">Anniversary</option>
+                            <option value="business">Business Meeting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookingNotes">Special Requests</label>
+                    <textarea id="bookingNotes" rows="3" placeholder="Any dietary restrictions or special requests..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close" onclick="closeOrderModal()">&times;</span>
+            <h2><i class="fas fa-shopping-cart"></i> Your Order</h2>
+            <div id="cartItems" class="cart-items">
+                <p class="empty-cart">Your cart is empty. Add items from the menu!</p>
+            </div>
+            <div id="cartSummary" class="cart-summary" style="display: none;">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (5%):</span>
+                    <span id="gst">₹0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">₹0</span>
+                </div>
+            </div>
+            <form id="orderForm" onsubmit="submitOrder(event)" style="display: none;">
+                <h3>Delivery Details</h3>
+                <div class="form-group">
+                    <label for="orderName">Full Name *</label>
+                    <input type="text" id="orderName" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone">Phone *</label>
+                    <input type="tel" id="orderPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderAddress">Delivery Address *</label>
+                    <textarea id="orderAddress" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="orderNotes">Order Notes</label>
+                    <textarea id="orderNotes" rows="2" placeholder="Any special instructions..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content modal-success">
+            <span class="close" onclick="closeSuccessModal()">&times;</span>
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 id="successTitle">Success!</h2>
+            <p id="successMessage"></p>
+            <button class="btn-submit" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
