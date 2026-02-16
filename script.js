@@ -391,7 +391,7 @@ if (hamburger) {
 
 // ===== Initialize =====
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('The Punjab Club Website Loaded Successfully!');
+    console.log('Chaupal Pure Veg Website Loaded Successfully!');
     
     // Add fade-in animation to sections
     const observerOptions = {
